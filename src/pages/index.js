@@ -1,3 +1,3 @@
 export * from './CityList';
+export * from './RestaurantList';
 export * from './RestaurantDetails';
-export * from './RestaurantList'
