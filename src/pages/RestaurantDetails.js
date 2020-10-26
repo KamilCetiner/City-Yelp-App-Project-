@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, Text, StyleSheet, Image, Dimensions } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, Image, Dimensions, Button, Linking } from 'react-native';
 
 const RestaurantDetail = (props) => {
     const { selectedRestaurant } = props.route.params;
@@ -21,10 +21,18 @@ const RestaurantDetail = (props) => {
     // reserve_url: "http://www.opentable.com/single.aspx?rid=149800"
     // state: "PA"
 
+    
+    const choiceURL = "https://google.com";
+    
+
+   
+        
+
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={styles.container}>
                 <Text style={styles.name}>{selectedRestaurant.name}</Text>
+                
 
                 <Image
                     style={styles.image}
@@ -42,6 +50,12 @@ const RestaurantDetail = (props) => {
                 <View style={styles.infoContainer}>
                     <Text style={styles.infoText}>{selectedRestaurant.postal_code}</Text>
                 </View>
+
+                <Text
+                style={{color: 'red', textAlign:'center', fontSize:20}}            
+                onPress={() => {                
+                Linking.openURL('https://aboutreact.com');
+                }}>Mobile Reserve</Text>
             </View>
         </SafeAreaView>
     )

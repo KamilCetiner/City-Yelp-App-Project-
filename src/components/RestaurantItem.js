@@ -1,14 +1,45 @@
-import React from 'react';
-import { TouchableOpacity, Text, Image, StyleSheet, Dimensions } from 'react-native';
+import React, {useState} from 'react';
+import { TouchableOpacity, Text, Image, View, StyleSheet, Dimensions, Linking, Button } from 'react-native';
 
 const RestaurantItem = (props) => {
-    return (
+
+    const isPrice = props.restaurant.price
+    
+
+    return ( 
         <TouchableOpacity style={styles.container} onPress={props.onSelect}>
+
             <Image
                 style={styles.image}
                 source={{ uri: props.restaurant.image_url }}
             />
             <Text style={styles.name}>{props.restaurant.name}</Text>
+
+            <View>
+            {
+
+                isPrice >= 3  ?
+
+                <Text style={styles.expensive}>$$EXPENSIVE$$</Text>
+                :
+
+                <Text style={styles.cheap}>CHEAP</Text>
+
+
+                }
+
+            </View>
+                       
+
+            <Text style={styles.name}>{props.restaurant.price}</Text>
+
+
+
+          
+
+
+                
+            
         </TouchableOpacity>
     )
 }
@@ -27,6 +58,16 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: 20,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        justifyContent: 'flex-end'
+
+    }, 
+    expensive:{
+        color:'red',
+        textAlign: 'right'
+    },
+    cheap:{
+        color:'yellow',
+        textAlign: 'right'
     }
 })

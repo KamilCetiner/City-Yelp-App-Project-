@@ -43,7 +43,7 @@ const RestaurantList = (props) => {
             const restaurantName = restaurant.name.toUpperCase();
 
             return restaurantName.indexOf(text) > -1;
-        })
+        }) 
 
         setRestaurantList(filteredRestaurants);
     }
